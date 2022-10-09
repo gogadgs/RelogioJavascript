@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<xmlns="http: //ww.w3.org/1999/xhtml" rel="stylesheet" href="relogio.css" type="text/css" />
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <!--tag para encode-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--tag para compatibilidade entre navegadores -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--tag para compatibilidade mobiles ou dispositivos moveis -->
+
+
+    <!--tag arquivo de estilização externa com CSS-->
+    <title>Relógio digital JavaScript:</title>
+    <!-- tag titulo da pagina -->
+    <!--arquivo externo javaScript-->
+    <script src="relogio.js"></script>
+    <link rel="stylesheet" type="text/css" href="relogio.css" />
+
+
+
+</head>
+<!--tag do corpo da pagina -->
+
+<body onload="UpdateTime()">
+    <h1>RELÓGIO EM JAVASCRIPT</h1>
+    <!-- coordenadas abscissas e ordenadas (x,y) mais a largura e a altura (width e height) -->
+    <svg id="clock" viewBox="0 0 100 100 " width="500" height="500">
+        <defs>
+            <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur in="SourceAlpha" stdDeviantion="1" result="blur" />
+                <feOffset i="blur" dx="1" dy="1" result="shadow" />
+                <feMerge>
+                    <feMergeNode in="SourceGraphic" />
+                    <feMergeNode in="shadow" />
+                </feMerge>
+            </filter>
+        </defs>
+        <circle id="face" cx="50" cy="50" r="45" />
+        <g id="ticks">
+            <!--marcas de tickets de 12 horas -->
+            <line x1="50" y1="5.000" x2="50.00" y2="10.00" />
+            <line x1="72.50" y1="11.03" x2="70.00" y2="15.36" />
+            <line x1="88.97" y1="27.50" x2="84.64" y2="30.00" />
+            <line x1="95.00" y1="50.00" x2="90.00" y2="50.00" />
+            <line x1="88.97" y1="72.50" x2="84.64" y2="70.00" />
+            <line x1="72.50" y1="88.97" x2="70.00" y2="84.64" />
+            <line x1="50.00" y1="95.00" x2="50.00" y2="90.00" />
+            <line x1="27.50" y1="88.97" x2="30.00" y2="84.64" />
+            <line x1="11.03" y1="72.50" x2="15.36" y2="70.00" />
+            <line x1="5.000" y1="50" x2="10.00" y2="50.00" />
+            <line x1="11.03" y1="27.50" x2="15.36" y2="30.00" />
+            <line x1="27.50" y1="11.03" x2="30.00" y2="15.36" />
+        </g>
+        <g id="numbers">
+            <!--numeração dos pontos cardeais -->
+            <text x="50" y="18">12</text><text x="85" y="53">3</text>
+            <text x="50" y="88">6</text><text x="15" y="53">9</text>
+        </g>
+        <!--seção para desenhar ponteiros-->
+        <g id="hands" filter="url(#shadow)">
+            <!--adiciona sombreamento nos ponteiros -->
+            <line id="hourHand" x1="50" y1="50" x2="50" y2="24" />
+            <line id="minuteHand" x1="50" y1="50" x2="50" y2="20" />
+
+        </g>
+    </svg>
+
+</body>
+
+</html>
