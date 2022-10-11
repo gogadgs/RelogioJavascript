@@ -26,3 +26,20 @@ UpdateTime = () => {
 
 
 }
+// seção função relogio digital//
+const getHours = () => {
+    // todas as variaveis constantes para nao mudar seu valor perante o sistema operacional//
+    const clock = document.getElementById('relogioDigital') // pega classe ou id(getElementByClassName ou getElementById) elemento html com indexação em zero //
+    const date = new Date() // herança do construtor nativo javaScript//
+    const hours = date.getHours() // consulta hora e atribui a variavel //
+    const minutes = date.getMinutes() // consulta minuto//
+    const seconds = date.getSeconds() // consulta segundos//
+    const hour = hours < 10 ? `0${hours}` : hours // atribui um digito 0 se for menor que 10 horas template string //
+    const minute = minutes < 10 ? `0${minutes}` : minutes // atribui um digito 0 se for menor que 10 minutos template string //
+    const second = seconds < 10 ? `0${seconds}` : seconds // atribui um digito 0 se for menor que 10 segundos template string //
+    clock.innerHTML = `${hour}:${minute}:${second}` // inserção da hora no elemento de visualização do html//
+}
+
+setInterval(() => {
+    getHours()
+});
