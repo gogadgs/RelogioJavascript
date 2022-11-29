@@ -78,7 +78,7 @@ h1 {
 
 /*seção de  responsividade*/
 
-@media (min-width: 1040px) and (max-width:1440px) {
+@media (min-width: 1024px) and (max-width:1440px) {
     h1 {
         text-align: center;
         position: relative;
